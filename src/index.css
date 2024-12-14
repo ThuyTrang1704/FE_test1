@@ -2,3 +2,9 @@
   margin: 0;
   padding: 0;
 }
+:root{
+  --green-02 : rgba(57, 149, 12, 0.2);
+  --green-04 : rgba(57, 149, 12, 0.4);
+  --green-06 : rgba(57, 149, 12, 0.6);
+  --green-08 : rgba(57, 149, 12, 0.8);
+}

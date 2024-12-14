@@ -16,16 +16,21 @@ const Login = () => {
         password: values.password,
       };
       const user = await authService.login(data);
-
+  
+      // Lưu thông tin người dùng vào localStorage
+      localStorage.setItem('user', JSON.stringify(user));
+  
+      // Điều hướng dựa trên vai trò của người dùng
       if (user?.role === "Role_Admin") {
         navigate("/dashboard");
-      }else if (user?.role === "Role_Student") {
-        navigate("/student");
-    }
+      } else if (user?.role === "Role_Student") {
+        navigate("/student");  // Đưa người dùng quay lại trang chủ
+      }
     } catch (err) {
       console.error(err.message);
     }
   };
+  
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -38,10 +43,11 @@ const Login = () => {
   return (
     <div
       style={{
-        height: "100vh",
-        backgroundImage: `url(${ImageSTU})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        margin:"40px 0",
+        // height: "100vh",
+        // backgroundImage: `url(${ImageSTU})`,
+        // backgroundSize: "cover",
+        // backgroundPosition: "center",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -57,7 +63,7 @@ const Login = () => {
           span: 24,
         }}
         style={{
-          maxWidth: 600, // Đặt chiều rộng của form là 600px
+          width: 600, // Đặt chiều rộng của form là 600px
           backgroundColor: "#eee",
           padding: "40px",
           borderRadius: "10px",

@@ -1,21 +1,36 @@
-// .sidebar-swapper {
-//   overflow: auto;
-//   position: fixed;
-//   left: 0;
-//   top: 0;
-//   bottom: 0;
-//   line-height: 120px;
-// }
-.demo-logo-vertical {
-  height: 32px;
-  margin: 16px;
-  background: rgba(57, 149, 12, 0.2);
-  border-radius: 6px;
+// Tùy chỉnh Menu trong Sider
+.ant-layout-sider {
+  .demo-logo-vertical {
+    height: 32px;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 6px;
+    display: flex;           
+    justify-content: center;  
+    align-items: center;      
+    padding: 0 10px;          
+    font-weight: bold; 
+    color: #333;
+    background: var(--green-04);
+    cursor: pointer;
+  }
 
-  display: flex;           
-  justify-content: center;  
-  align-items: center;      
-  padding: 0 10px;          
-  font-weight: bold;      
+  .ant-menu {
+    .ant-menu-item {
+      font-size: 16px;
+      font-weight: 500;
 
+      // Hiển thị màu khi hover
+      &:hover {
+        background-color: var(--green-02) !important;
+        color: #fff; // Đổi màu chữ khi hover
+      }
+
+      // Khi mục menu được chọn (active)
+      &.ant-menu-item-selected {
+        background-color: var(--green-06);  // Màu nền khi mục được chọn
+        color: #fff; // Đổi màu chữ khi chọn
+      }
+    }
+  }
 }

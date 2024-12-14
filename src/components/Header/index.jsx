@@ -20,7 +20,7 @@ const Header = ({ collapsed, setCollapsed }) => {
       key: "1",
       label: "Chỉnh sửa thông tin",
       onClick() {
-        navigate("/profile");
+        navigate("/dashboard/profile");
       },
     },
     {

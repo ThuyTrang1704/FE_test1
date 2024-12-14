@@ -21,7 +21,7 @@ const MainLayout = () => {
           <Footer
             style={{
               textAlign: "center",
-              backgroundColor: "#eee",
+              backgroundColor: 'var(--green-02)',
             }}
           >
             LUẬN VĂN TỐT NGHIỆP THÙY TRANG ©{new Date().getFullYear()}.

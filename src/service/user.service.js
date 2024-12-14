@@ -1,10 +1,28 @@
 import api from "./axiosClient";
 import { getAccessToken } from "../utils/helper";
 
-const fetchUser = async ({keyword, pageNumber, pageSize}) => {
+const fetchUser = async ({ keyword, pageNumber, pageSize }) => {
   try {
     const token = getAccessToken();
-    const response = await api.get(`/api/user/filterUser?keyword=${keyword}&pageNumber=${pageNumber}&pageSize=${pageSize}`, {
+    const response = await api.get(
+      `/api/user/filterUser?keyword=${keyword}&pageNumber=${pageNumber}&pageSize=${pageSize}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    const userData = response.data;
+    return userData;
+  } catch (error) {
+    throw new Error("Fetch User failed");
+  }
+};
+
+const getUser = async () => {
+  try {
+    const token = getAccessToken();
+    const response = await api.get("/api/user/profile", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -15,24 +33,6 @@ const fetchUser = async ({keyword, pageNumber, pageSize}) => {
     throw new Error("Fetch User failed");
   }
 };
-
-
-const getUser = async () => {
-    try {
-      const token = getAccessToken();
-      const response = await api.get("/api/user/profile", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const userData = response.data;
-      return userData;
-    } catch (error) {
-      throw new Error("Fetch User failed");
-    }
-  };
-
-
 
 const createUser = async (userData) => {
   try {
@@ -48,30 +48,30 @@ const createUser = async (userData) => {
     throw new Error("Create user failed");
   }
 };
-const updateUser = async (id, data) => {
+const updateUser = async (data) => {
   try {
     const token = getAccessToken();
-    const response = await api.put(`/accounts/${id}`, data, {
+    const response = await api.put("/api/user/updateNguoiDung", data, {
       headers: {
-        Authorization: `Basic ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
-    const updatedUser = response.data; // Người dùng đã được cập nhật
-    return updatedUser;
+    const result = response.data;
+    if (result.httpCode === 200) {
+      return result.message; // Lấy thông báo từ phản hồi
+    } else {
+      throw new Error(result.message || "Update failed");
+    }
   } catch (error) {
     throw new Error("Update user failed");
   }
 };
-
-
 
 const userService = {
   fetchUser,
   getUser,
   createUser,
   updateUser,
-
-
 };
 
 export default userService;

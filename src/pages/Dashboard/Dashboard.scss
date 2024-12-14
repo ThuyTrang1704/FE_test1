@@ -1,0 +1,12 @@
+/* Thêm box-shadow vào các Card */
+.ant-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Thêm góc bo tròn nếu muốn */
+    transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động khi hover */
+  }
+  
+  /* Thêm hiệu ứng khi hover lên Card */
+  .ant-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+  

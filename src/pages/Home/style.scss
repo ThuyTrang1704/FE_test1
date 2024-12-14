@@ -1,113 +1,21 @@
-.home-head {
+.home-page {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    padding: 0 16px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    height: 70px;
-    box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.2);
+    flex-direction: column; // Xếp các phần tử theo chiều dọc
+    align-items: center; // Canh giữa các phần tử
+    margin: 0 250px; // Lề trái và phải
+    padding: 20px 0; // Khoảng cách trên và dưới cho phần tử
+    background-color: rgba(57, 149, 12, 0.2);
 
-    .logo-head {
-        display: flex;
-        align-items: center;
-        gap: 10px; // Khoảng cách giữa các phần tử
-
-        .ant-avatar {
-            width: 48px; // Kích thước avatar
-            height: 48px;
-            line-height: 48px;
-            font-size: 24px; // Nếu avatar là text, font-size của nó
-        }
-
-        h4 {
-            margin: 0;
-            font-size: 24px; // Kích thước font chữ lớn hơn
-            font-weight: bold;
-            color: #333; // Màu chữ
-        }
+    h4 {
+      text-align: center; // Canh giữa văn bản
+      font-size: 20px; // Kích thước chữ
+      font-weight: normal; // Cân bằng trọng lượng chữ
+      color: #333; // Màu chữ
+      margin-bottom: 20px; // Khoảng cách dưới để phân tách h4 với CourseCard
     }
-
-
-    .menu-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px; // Khoảng cách giữa các phần tử trong menu-head
-
-        .ant-menu {
-            flex-grow: 1; // Cho phép menu chiếm tối đa không gian còn lại
-            justify-content: flex-start; // Canh trái các mục menu
-            background: transparent; // Loại bỏ nền mặc định
-            border: none; // Loại bỏ đường viền mặc định
-        }
-
-        .ant-menu-item {
-            white-space: nowrap; // Đảm bảo không bị cắt chữ
-            font-size: 16px; // Tăng kích thước chữ
-            font-weight: 500;
-            color: #333; // Màu chữ
-            padding: 0 16px; // Khoảng cách giữa các mục menu
-
-            &:hover {
-                color: #007bff; // Màu chữ khi hover
-            }
-        }
-
-        .ant-menu-item-selected {
-            font-weight: bold;
-            color: #0056b3; // Màu chữ khi mục được chọn
-            background: transparent; // Loại bỏ nền khi được chọn
-        }
-
-        .ant-dropdown {
-            .ant-avatar {
-                cursor: pointer;
-                transition: transform 0.3s ease;
-
-                &:hover {
-                    transform: scale(1.1); // Hiệu ứng phóng to nhẹ khi hover
-                }
-            }
-        }
-
-        .btn-home-login {
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-            padding: 8px 20px;
-            background-color: #007bff; // Nền xanh
-            color: white; // Chữ trắng
-            border: none;
-            transition: background-color 0.3s, transform 0.3s;
-
-            &:hover {
-                background-color: #0056b3; // Đổi màu khi hover
-                transform: translateY(-2px); // Hiệu ứng nâng nhẹ
-            }
-        }
+  
+    .course-card {
+      // Các style dành riêng cho CourseCard nếu cần
     }
-
-
-
-    .btn-home-login {
-        margin: 0 30px;
-        border-radius: 20px;
-        font-size: 14px;
-        font-weight: bold;
-        color: #fff;
-        background: #007bff;
-        border: none;
-        padding: 8px 20px;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-    }
-}
+  }
+  

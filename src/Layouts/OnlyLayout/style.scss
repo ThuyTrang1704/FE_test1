@@ -1,0 +1,111 @@
+.only-container {
+    box-sizing: border-box;
+    // height: 100vh;
+
+    .home-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        padding: 0 16px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        height: 70px;
+        box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.2);
+
+        .logo-head {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .ant-avatar {
+                width: 48px; // Kích thước avatar
+                height: 48px;
+                line-height: 48px;
+                font-size: 24px; // Nếu avatar là text, font-size của nó
+            }
+
+            h4 {
+                margin: 0;
+                font-size: 24px; // Kích thước font chữ lớn hơn
+                font-weight: bold;
+                color: #333; // Màu chữ
+            }
+        }
+
+        .menu-head {
+            display: flex; // Bố cục dạng hàng ngang
+            align-items: center; // Căn giữa theo chiều dọc
+            justify-content: flex-end; // Cách đều các phần tử bên trong
+            flex-grow: 1; // Đảm bảo nó chiếm toàn bộ không gian còn lại
+            gap: 18px;
+
+            .ant-menu {
+                display: flex; // Menu hiển thị ngang
+                align-items: center;
+                flex-grow: 1;
+                justify-content: flex-end; // Các mục menu canh trái
+                background: transparent; // Loại bỏ nền mặc định
+                border: none; // Loại bỏ viền mặc định
+            }
+
+            .ant-menu-item {
+                white-space: nowrap; // Ngăn thu gọn chữ
+                font-size: 16px;
+                font-weight: 500;
+                color: #333;
+
+                &:hover {
+                    color: var(--green-09);
+                    border-bottom-color: var(--green-06);
+                }
+            }
+
+            .ant-menu-item-selected {
+                font-weight: bold;
+                color: var(--green-09);
+
+                &::after {
+                    border-bottom-color: var(--green-06);
+                }
+            }
+
+            .btn-home-login {
+                margin: 0 30px;
+                border-radius: 20px;
+                font-size: 14px;
+                font-weight: bold;
+                color: #fff;
+                background-color: var(--green-06);
+                border: none;
+                padding: 8px 20px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: var(--green-09);
+                    transform: translateY(-2px);
+                }
+            }
+
+            .ant-avatar {
+                margin-left: 16px; // Thêm khoảng cách cho avatar
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1); // Hiệu ứng phóng to khi hover
+                }
+            }
+        }
+
+    }
+
+    .ant-layout-content {
+        background: #f0f2f5;
+        margin-top: 70px; // Cộng với chiều cao của header
+        flex-grow: 1; // Làm cho content chiếm toàn bộ không gian còn lại
+        overflow: hidden; // Ẩn thanh cuộn thừa
+    }
+}

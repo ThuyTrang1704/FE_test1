@@ -3,9 +3,11 @@ import { createBrowserRouter } from "react-router-dom";
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 import Loader from "../components/Loader";
+import Unauthorized from "../pages/PageCode/Unauthorized";
 
 
-//Layout
+
+// Layouts
 const MainLayout = React.lazy(() => import("../Layouts/MainLayout"));
 const OnlyLayout = React.lazy(() => import("../Layouts/OnlyLayout"));
 
@@ -15,12 +17,9 @@ const LoginPage = React.lazy(() => import("../pages/Login"));
 const DashboardPage = React.lazy(() => import("../pages/Dashboard"));
 const UsersPage = React.lazy(() => import("../pages/User"));
 const LevelPage = React.lazy(() => import("../pages/Level"));
-
-
-
-//StudentPage
 const StudentHome = React.lazy(() => import("../pages/Student/Home"));
-
+const AboutUsPage = React.lazy(() => import("../pages/AboutUs"));
+const ProfilePage = React.lazy(() => import("../pages/Profile"));
 
 const router = createBrowserRouter([
   {
@@ -28,25 +27,60 @@ const router = createBrowserRouter([
     element: (
       <PublicRoute>
         <Suspense fallback={<Loader />}>
-          <HomePage />
+          <OnlyLayout />
         </Suspense>
       </PublicRoute>
     ),
+    children:[
+      {
+        index: true,
+        element:(
+          <Suspense fallback={<Loader />}>
+            <HomePage />
+          </Suspense>
+        )
+      },{
+        path: "about-us",
+        element:(
+          <Suspense fallback={<Loader />}>
+            <AboutUsPage />
+          </Suspense>
+        )
+      },
+      {
+        path: "blog",
+        element:(
+          <Suspense fallback={<Loader />}>
+            <div>Blog</div>
+          </Suspense>
+        )
+      },
+    ]
   },
   {
     path: "/login",
     element: (
       <PublicRoute>
         <Suspense fallback={<Loader />}>
-          <LoginPage />
+          <OnlyLayout/>
         </Suspense>
       </PublicRoute>
     ),
+    children:[
+      {
+        index: true,
+        element:(
+          <Suspense fallback={<Loader />}>
+            <LoginPage />
+          </Suspense>
+        )
+      }
+    ]
   },
   {
     path: "/dashboard",
     element: (
-      <PrivateRoute>
+      <PrivateRoute allowedRoles={["Role_Admin"]}>
         <Suspense fallback={<Loader />}>
           <MainLayout />
         </Suspense>
@@ -81,7 +115,7 @@ const router = createBrowserRouter([
         path: "skill",
         element: (
           <Suspense fallback={<Loader />}>
-            <div>Skill</div>
+            <div>Đang phát triển skill</div>
           </Suspense>
         ),
       },
@@ -89,7 +123,7 @@ const router = createBrowserRouter([
         path: "part",
         element: (
           <Suspense fallback={<Loader />}>
-            <div>Part</div>
+            <div>Đang phát triển part</div>
           </Suspense>
         ),
       },
@@ -97,7 +131,7 @@ const router = createBrowserRouter([
         path: "topic",
         element: (
           <Suspense fallback={<Loader />}>
-            <div>Topic</div>
+            <div>Đang phát triển topic</div>
           </Suspense>
         ),
       },
@@ -105,7 +139,7 @@ const router = createBrowserRouter([
         path: "question",
         element: (
           <Suspense fallback={<Loader />}>
-            <div>Question</div>
+            <div>Đang phát triển question</div>
           </Suspense>
         ),
       },
@@ -113,7 +147,15 @@ const router = createBrowserRouter([
         path: "structure",
         element: (
           <Suspense fallback={<Loader />}>
-            <div>structure</div>
+            <div>Đang phát triển Structure</div>
+          </Suspense>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ProfilePage />
           </Suspense>
         ),
       },
@@ -122,7 +164,7 @@ const router = createBrowserRouter([
   {
     path: "/student",
     element: (
-      <PrivateRoute>
+      <PrivateRoute allowedRoles={["Role_Student"]}>
         <Suspense fallback={<Loader />}>
           <OnlyLayout />
         </Suspense>
@@ -130,14 +172,48 @@ const router = createBrowserRouter([
     ),
     children:[
       {
-        index : true,
+        index: true,
         element:(
           <Suspense fallback={<Loader />}>
             <StudentHome />
           </Suspense>
+        )
+      },{
+        path: "about-us",
+        element:(
+          <Suspense fallback={<Loader />}>
+            <AboutUsPage />
+          </Suspense>
+        )
+      },
+      {
+        path: "blog",
+        element:(
+          <Suspense fallback={<Loader />}>
+            <div>Blog</div>
+          </Suspense>
+        )
+      },
+      {
+        path: "profile",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ProfilePage />
+          </Suspense>
         ),
-      }
+      },
     ]
   },
+  {
+    path: "/unauthorized",
+    element: (
+      <Suspense fallback={<Loader />}>
+        <Unauthorized />
+      </Suspense>
+    ),
+  },
 ]);
+
+
+
 export default router;

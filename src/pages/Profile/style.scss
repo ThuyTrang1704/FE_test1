@@ -1,0 +1,156 @@
+/* Tổng thể container */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #fff, #eaf3ff);
+    padding: 20px;
+}
+
+/* Tiêu đề */
+.profile-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Card chính */
+.profile-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+}
+
+/* Header trong card */
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Ảnh đại diện */
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 2px solid #eaeaea;
+}
+
+/* Tài khoản */
+.profile-account p {
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+    color: #555;
+}
+
+.profile-account span {
+    color: var(--green-06);
+}
+
+/* Form */
+.profile-form .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    /* Input styles */
+    .ant-input {
+        height: 50px;
+        font-size: 16px;
+    }
+
+    /* Phong cách cho Ant Design input */
+    .ant-input-affix-wrapper {
+        height: 50px;
+        /* Đặt chiều cao cố định */
+        display: flex;
+        align-items: center;
+        /* Căn giữa icon và nội dung */
+        padding: 0 12px;
+        /* Khoảng cách bên trong */
+        border-radius: 8px;
+        /* Bo góc */
+        font-size: 16px;
+
+        &:hover {
+            border-color: var(--green-04);
+        }
+
+        &:focus {
+            border-color: var(--green-06);
+            box-shadow: 0 0 5px var(--green-06);
+        }
+    }
+
+    /* Input text */
+    .ant-input {
+        height: 100%;
+        border: none;
+        /* Xóa đường viền bên trong */
+        font-size: 16px;
+        /* Cỡ chữ */
+        padding: 0;
+        /* Không thêm khoảng padding */
+        line-height: normal;
+        /* Đảm bảo nội dung căn giữa */
+    }
+
+    /* Icon bên trái */
+    .ant-input-prefix {
+        display: flex;
+        align-items: center;
+        /* Căn giữa icon theo chiều dọc */
+        color: #888;
+        margin-right: 8px;
+        /* Khoảng cách giữa icon và input text */
+        font-size: 18px;
+    }
+
+    /* Khi input focus */
+    .ant-input-affix-wrapper-focused {
+        border-color: var(--green-06);
+        box-shadow: 0 0 5px var(--green-06);
+    }
+
+
+    .ant-picker {
+        height: 50px;
+    }
+}
+
+/* Các nút */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.change-password-button {
+    background: #f5f5f5;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.change-password-button:hover {
+    background: #eaeaea;
+}
+
+.btn-pro{
+    background-color: var(--green-08);
+    border-color: var(--green-08);
+    height: 50px;
+    font-size: 16px;
+}
+
+.btn-pro:hover {
+    background-color: var(--green-04);
+    border-color: var(--green-04);
+}

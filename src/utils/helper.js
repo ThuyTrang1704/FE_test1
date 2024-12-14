@@ -4,11 +4,13 @@ export const getAccessToken = () => {
   return token;
 };
 export const getAccessRole = () => {
-  const user = localStorage.getItem("user");
-  const role = JSON.parse(user).role;
-  return role;
+  const user = getAccessUser();
+  return user ? user.role : null; // Trả về role hoặc null nếu không có
 };
-export const getAccessUser = () =>{
+export const getAccessUser = () => {
   const user = localStorage.getItem("user");
-  return user;
-}
+  if (user) {
+    return JSON.parse(user); // Trả về đối tượng người dùng
+  }
+  return null;
+};
