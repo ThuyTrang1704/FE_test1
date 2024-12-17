@@ -53,11 +53,15 @@ const OnlyLayout = () => {
     navigate(e.key);
   };
 
+  const handleBackHome = () => {
+    navigate("/");
+  };
+  
   return (
     <>
       <Layout className="only-container">
         <Header className="home-head">
-          <div className="logo-head">
+          <div className="logo-head" onClick={handleBackHome}>
             <Avatar src={logoStudy} />
             <h4>STUDY TOEIC</h4>
           </div>

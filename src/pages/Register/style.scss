@@ -1,0 +1,127 @@
+.register-container {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .register-form {
+      width: 600px;
+      background-color: var(--green-005);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+  
+      .ant-typography {
+        text-align: center;
+      }
+  
+      .register-button {
+        width: 100%;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 24px;
+        background: var(--green-04);
+        font-family: "SVN-Poppins";
+        font-weight: 600;
+        margin-top: 10px;
+      }
+  
+      .register-button:hover {
+        background: var(--green-06);
+      }
+  
+      .redirect-login {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+  
+        span:last-child {
+          margin-left: 5px;
+          cursor: pointer;
+          color: var(--green-06);
+        }
+      }
+    }
+  }
+  
+  /* Input styles */
+  .ant-input {
+    height: 50px;
+    font-size: 16px;
+  }
+  
+  .ant-input-affix-wrapper {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 8px;
+    font-size: 16px;
+  
+    &:hover {
+      border-color: var(--green-04);
+    }
+  
+    &:focus {
+      border-color: var(--green-06);
+      box-shadow: 0 0 5px var(--green-06);
+    }
+  }
+  
+  /* Input text */
+  .ant-input {
+    height: 100%;
+    border: none;
+    font-size: 16px;
+    padding: 0;
+    line-height: normal;
+  }
+  
+  .ant-input-prefix {
+    display: flex;
+    align-items: center;
+    color: #888;
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  
+  /* Focus input */
+  .ant-input-affix-wrapper-focused {
+    border-color: var(--green-06);
+    box-shadow: 0 0 5px var(--green-06);
+  }
+  
+  /* Nút hành động */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .change-password-button {
+    background: #f5f5f5;
+    color: #333;
+    border: 1px solid #ddd;
+  
+    &:hover {
+      background: #eaeaea;
+    }
+  }
+  
+  .btn-pro {
+    background-color: var(--green-08);
+    border-color: var(--green-08);
+    height: 50px;
+    font-size: 16px;
+  
+    &:hover {
+      background-color: var(--green-04);
+      border-color: var(--green-04);
+    }
+  }
+  
+  .ant-picker {
+    height: 50px;
+  }
+  

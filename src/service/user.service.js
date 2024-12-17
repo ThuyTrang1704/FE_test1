@@ -66,12 +66,27 @@ const updateUser = async (data) => {
     throw new Error("Update user failed");
   }
 };
+const countUsers =async ()=>{
+  try {
+    const token = getAccessToken();
+    const response = await api.get("/api/user/countUsers", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const data = response.data;
+    return data;
+  } catch (error) {
+    throw new Error("Count User failed");
+  }
+}
 
 const userService = {
   fetchUser,
   getUser,
   createUser,
   updateUser,
+  countUsers,
 };
 
 export default userService;

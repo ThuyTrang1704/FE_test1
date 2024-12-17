@@ -1,0 +1,130 @@
+/* Login Form Container */
+.login-container {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  
+    .login-form {
+      width: 600px;
+      background-color: var(--green-005);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+  
+    /* Form Title */
+    .form-title {
+      text-align: center;
+    }
+  
+    /* Form Item */
+    .form-item {
+      margin-bottom: 5px;
+    }
+  
+    /* Login Button */
+    .login-button {
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 24px;
+      background: var(--green-04);
+      font-family: "SVN-Poppins";
+      font-weight: 600;
+      width: 100%;
+      margin-top: 10px;
+  
+      &:hover {
+        background: var(--green-06);
+      }
+    }
+  
+    /* Redirect to Register */
+    .redirect-register {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+  
+      span {
+        &:first-child {
+          margin-right: 5px;
+        }
+  
+        &:last-child {
+          cursor: pointer;
+          color: var(--green-06);
+        }
+      }
+    }
+  }
+  
+  /* Input Styles */
+  .ant-input {
+    height: 50px;
+    font-size: 16px;
+  }
+  
+  /* Phong cách cho Ant Design input */
+  .ant-input-affix-wrapper {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 8px;
+    font-size: 16px;
+  
+    &:hover {
+      border-color: var(--green-04);
+    }
+  
+    &:focus {
+      border-color: var(--green-06);
+      box-shadow: 0 0 5px var(--green-06);
+    }
+  }
+  
+  /* Input text */
+  .ant-input {
+    height: 100%;
+    border: none;
+    font-size: 16px;
+    padding: 0;
+    line-height: normal;
+  }
+  
+  /* Icon bên trái */
+  .ant-input-prefix {
+    display: flex;
+    align-items: center;
+    color: #888;
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  
+  /* Khi input focus */
+  .ant-input-affix-wrapper-focused {
+    border-color: var(--green-06);
+    box-shadow: 0 0 5px var(--green-06);
+  }
+  
+  /* Checkbox */
+  .ant-checkbox-wrapper {
+    // color: var(--green-06);
+    font-size: 14px;
+  }
+  
+  /* Button */
+  .btn-login {
+    background-color: var(--green-04);
+    border-color: var(--green-04);
+    height: 50px;
+    font-size: 16px;
+  }
+  
+  .ant-btn:hover {
+    background: var(--green-08) !important;
+    border-color: var(--green-08);
+  }
+  

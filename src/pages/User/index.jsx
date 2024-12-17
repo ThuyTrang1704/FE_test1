@@ -5,16 +5,14 @@ import ComonTable from "../../components/ComonTable";
 import userService from "../../service/user.service";
 import "./style.scss";
 
-
 const Users = () => {
   const [keyword, setKeyword] = useState("");
-    const [pageNumber, setPageNumber] = useState(1);
-    const [pageSize, setPageSize] = useState(2);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(2);
 
   const [loading, setLoading] = useState(false);
   const [dataSource, setDataSource] = useState([]);
   const [totalPage, setTotalPage] = useState(0);
-  
 
   // Cột của bảng
   const columns = [
@@ -59,7 +57,11 @@ const Users = () => {
     const userData = async () => {
       try {
         setLoading(true);
-        const data = await userService.fetchUser({keyword, pageNumber, pageSize});
+        const data = await userService.fetchUser({
+          keyword,
+          pageNumber,
+          pageSize,
+        });
         setDataSource(data.contents);
         setTotalPage(data.totalPages);
       } catch (error) {
@@ -126,5 +128,3 @@ const Users = () => {
 };
 
 export default Users;
-
-

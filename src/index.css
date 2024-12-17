@@ -3,8 +3,36 @@
   padding: 0;
 }
 :root{
+  --green-005 : rgba(57, 149, 12, 0.05);
+  --green-01 : rgba(57, 149, 12, 0.1);
   --green-02 : rgba(57, 149, 12, 0.2);
+  --green-03 : rgba(57, 149, 12, 0.3);
   --green-04 : rgba(57, 149, 12, 0.4);
+  --green-05 : rgba(57, 149, 12, 0.5);
   --green-06 : rgba(57, 149, 12, 0.6);
   --green-08 : rgba(57, 149, 12, 0.8);
+  --blue-08:rgba(29, 84, 157, 0.8);
+}
+/* Font Regular */
+@font-face {
+  font-family: 'SVN-Poppins';
+  src: url('./assets/fonts/SVN-Poppins-Regular.woff2') format('truetype');
+  font-weight: 400; /* Normal */
+  font-style: normal;
+}
+
+/* Font SemiBold */
+@font-face {
+  font-family: 'SVN-Poppins';
+  src: url('./assets/fonts/SVN-Poppins-SemiBold.woff2') format('truetype');
+  font-weight: 600; /* SemiBold */
+  font-style: normal;
+}
+
+/* Font ExtraBold */
+@font-face {
+  font-family: 'SVN-Poppins';
+  src: url('./assets/fonts/SVN-Poppins-ExtraBold.woff2') format('truetype');
+  font-weight: 800; /* ExtraBold */
+  font-style: normal;
 }

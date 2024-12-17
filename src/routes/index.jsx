@@ -14,6 +14,7 @@ const OnlyLayout = React.lazy(() => import("../Layouts/OnlyLayout"));
 // Lazy load các trang
 const HomePage = React.lazy(() => import("../pages/Home"));
 const LoginPage = React.lazy(() => import("../pages/Login"));
+const RegiterPage = React.lazy(() => import("../pages/Register"));
 const DashboardPage = React.lazy(() => import("../pages/Dashboard"));
 const UsersPage = React.lazy(() => import("../pages/User"));
 const LevelPage = React.lazy(() => import("../pages/Level"));
@@ -55,23 +56,19 @@ const router = createBrowserRouter([
           </Suspense>
         )
       },
-    ]
-  },
-  {
-    path: "/login",
-    element: (
-      <PublicRoute>
-        <Suspense fallback={<Loader />}>
-          <OnlyLayout/>
-        </Suspense>
-      </PublicRoute>
-    ),
-    children:[
       {
-        index: true,
+        path: "login",
         element:(
           <Suspense fallback={<Loader />}>
             <LoginPage />
+          </Suspense>
+        )
+      },
+      {
+        path: "register",
+        element:(
+          <Suspense fallback={<Loader />}>
+            <RegiterPage />
           </Suspense>
         )
       }

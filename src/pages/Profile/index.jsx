@@ -12,7 +12,6 @@ import userService from "../../service/user.service";
 import Loader from "../../components/Loader";
 
 const Profile = () => {
-
   // Khai báo state để lưu trữ dữ liệu người dùng
   const [userData, setUserData] = useState(null);
 
@@ -22,7 +21,6 @@ const Profile = () => {
       try {
         const data = await userService.getUser();
         setUserData(data); // Cập nhật dữ liệu người dùng vào state
-        console.log("data", data); // In dữ liệu người dùng ra console để kiểm tra
       } catch (error) {
         console.error("Fetch User failed", error);
       }
@@ -30,14 +28,12 @@ const Profile = () => {
     userDataFetch();
   }, []); // Chạy khi component mount
 
-  const onFinish = async(values) => {
-    console.log("Form values:", values);
+  const onFinish = async (values) => {
     try {
       const messageResponse = await userService.updateUser(values);
-      
+
       // Hiển thị popup thông báo thành công
       message.success(messageResponse);
-      
     } catch (error) {
       console.error("Error updating user:", error);
     }
@@ -66,7 +62,7 @@ const Profile = () => {
           onFinish={onFinish}
           className="profile-form"
           initialValues={{
-            id:userData.id,
+            id: userData.id,
             name: userData.name,
             email: userData.email,
             address: userData.address,
@@ -74,11 +70,8 @@ const Profile = () => {
           }}
         >
           <div className="form-grid">
-          <Form.Item
-              name="id"
-              hidden
-            >
-              <Input/>
+            <Form.Item name="id" hidden>
+              <Input />
             </Form.Item>
             <Form.Item
               name="name"

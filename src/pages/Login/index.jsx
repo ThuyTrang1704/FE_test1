@@ -1,8 +1,9 @@
 import React from "react";
 import { Button, Checkbox, Form, Input, Typography } from "antd";
+import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import ImageSTU from "../../assets/hinhtruong.jpg";
 import authService from "../../service/auth.service";
+import "./style.scss";
 
 const { Title } = Typography;
 
@@ -11,131 +12,78 @@ const Login = () => {
 
   const onFinish = async (values) => {
     try {
-      const data = {
-        email: values.email,
-        password: values.password,
-      };
-      const user = await authService.login(data);
-  
-      // Lưu thông tin người dùng vào localStorage
-      localStorage.setItem('user', JSON.stringify(user));
-  
+      const user = await authService.login(values);
+
       // Điều hướng dựa trên vai trò của người dùng
       if (user?.role === "Role_Admin") {
         navigate("/dashboard");
       } else if (user?.role === "Role_Student") {
-        navigate("/student");  // Đưa người dùng quay lại trang chủ
+        navigate("/student");
       }
     } catch (err) {
       console.error(err.message);
     }
   };
-  
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
-  const handleBackHome = () => {
-    navigate("/");
+  const handleRedirecRegister = () => {
+    navigate("/register");
   };
 
   return (
-    <div
-      style={{
-        margin:"40px 0",
-        // height: "100vh",
-        // backgroundImage: `url(${ImageSTU})`,
-        // backgroundSize: "cover",
-        // backgroundPosition: "center",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "#fff",
-      }}
-    >
+    <div className="login-container">
       <Form
         name="basic"
-        labelCol={{
-          span: 24, // Đặt span 24 cho label để căn trái
-        }}
-        wrapperCol={{
-          span: 24,
-        }}
-        style={{
-          width: 600, // Đặt chiều rộng của form là 600px
-          backgroundColor: "#eee",
-          padding: "40px",
-          borderRadius: "10px",
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-          position: "relative", 
-        }}
-        initialValues={{
-          remember: true,
-        }}
+        labelCol={{ span: 24 }}
+        wrapperCol={{ span: 24 }}
+        initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
+        className="login-form"
       >
-        <Title level={1} style={{ textAlign: "center" }}>
+        <Title level={1} className="form-title">
           Đăng Nhập
         </Title>
 
         <Form.Item
-          label="Email"
           name="email"
-          rules={[
-            {
-              required: true,
-              message: "Please input your email!",
-            },
-          ]}
-          style={{marginBottom:"5px"}}
+          rules={[{ required: true, message: "Please input your email!" }]}
         >
-          <Input />
+          <Input prefix={<MailOutlined />} placeholder="Email (Account)" />
         </Form.Item>
 
         <Form.Item
-          label="Password"
           name="password"
           rules={[
-            {
-              required: true,
-              message: "Please input your password!",
-            },
+            { required: true, message: "Please input your password!" },
+            { min: 6, message: "Mật khẩu phải có ít nhất 6 ký tự!" },
           ]}
-          style={{marginBottom:"5px"}}
+          className="form-item"
         >
-          <Input.Password />
+          <Input.Password
+            prefix={<LockOutlined />}
+            placeholder="Nhập mật khẩu"
+          />
         </Form.Item>
 
         <Form.Item name="remember" valuePropName="checked" label={null}>
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
 
-        <Form.Item style={{ display: "flex", justifyContent: "space-around" }}>
-          <Button
-            type="primary"
-            htmlType="submit"
-            style={{
-              width: "48%", // Button chiếm 48% chiều rộng để 2 button ngang nhau
-            }}
-          >
+        <Form.Item>
+          <Button type="primary" htmlType="submit" className="login-button">
             Đăng Nhập
           </Button>
-          <Button
-            type="dashed"
-            onClick={handleBackHome}
-            style={{
-              width: "48%",
-              marginLeft: "4%",
-              backgroundColor: "#fff",
-              color: "#0866ff",
-            }}
-          >
-            Back Home
-          </Button>
         </Form.Item>
+
+        <div className="redirect-register">
+          <span>Bạn chưa có tài khoản?</span>
+          <span onClick={handleRedirecRegister}>Đăng ký ngay</span>
+        </div>
       </Form>
     </div>
   );

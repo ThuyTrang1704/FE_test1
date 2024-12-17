@@ -1,6 +1,5 @@
 .only-container {
     box-sizing: border-box;
-    // height: 100vh;
 
     .home-head {
         display: flex;
@@ -16,10 +15,12 @@
         height: 70px;
         box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.2);
 
+
         .logo-head {
             display: flex;
             align-items: center;
             gap: 20px;
+            cursor: pointer; // Thêm con trỏ chuột khi hover vào logo
 
             .ant-avatar {
                 width: 48px; // Kích thước avatar
@@ -108,4 +109,9 @@
         flex-grow: 1; // Làm cho content chiếm toàn bộ không gian còn lại
         overflow: hidden; // Ẩn thanh cuộn thừa
     }
+
+    .ant-layout-footer {
+        padding: 20px 0;
+    }
+
 }
